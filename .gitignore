@@ -5,3 +5,17 @@
 /.vs
 /MusicStore.ConApp/obj
 /MusicStore.Logic/obj
+MusicStore.ConApp/bin/Debug/net8.0/MusicStore.ConApp.deps.json
+MusicStore.ConApp/bin/Debug/net8.0/MusicStore.ConApp.dll
+MusicStore.ConApp/bin/Debug/net8.0/MusicStore.ConApp.exe
+MusicStore.ConApp/bin/Debug/net8.0/MusicStore.ConApp.pdb
+MusicStore.ConApp/bin/Debug/net8.0/MusicStore.ConApp.runtimeconfig.json
+MusicStore.ConApp/bin/Debug/net8.0/MusicStore.Logic.dll
+MusicStore.ConApp/bin/Debug/net8.0/MusicStore.Logic.pdb
+MusicStore.ConApp/bin/Debug/net8.0/Data/Albums.csv
+MusicStore.ConApp/bin/Debug/net8.0/Data/Artists.csv
+MusicStore.ConApp/bin/Debug/net8.0/Data/Genres.csv
+MusicStore.ConApp/bin/Debug/net8.0/Data/Tracks.csv
+MusicStore.Logic/bin/Debug/net8.0/MusicStore.Logic.deps.json
+MusicStore.Logic/bin/Debug/net8.0/MusicStore.Logic.dll
+MusicStore.Logic/bin/Debug/net8.0/MusicStore.Logic.pdb
