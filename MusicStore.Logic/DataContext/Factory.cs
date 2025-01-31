@@ -2,20 +2,22 @@
 
 namespace MusicStore.Logic.DataContext
 {
-    /// <summary>
-    /// Factory class to create instances of IContext.
-    /// </summary>
-    public static class Factory
-    {
         /// <summary>
-        /// Creates an instance of IContext.
+        /// Factory class to create instances of IContext.
         /// </summary>
-        /// <returns>An instance of IContext.</returns>
-        public static IContext CreateContext()
+        public static class Factory
         {
-            MusicStoreContext? result = new();
+                /// <summary>
+                /// Creates an instance of IContext.
+                /// </summary>
+                /// <returns>An instance of IContext.</returns>
+                public static IContext CreateContext( )
+                {
+                        var result = new MusicStoreContext( );
 
-            return result;
+                        result.Database.EnsureCreated( );
+
+                        return result;
+                }
         }
-    }
 }

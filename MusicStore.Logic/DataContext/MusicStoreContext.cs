@@ -1,33 +1,57 @@
-﻿using MusicStore.Logic.Contracts;
+﻿using Microsoft.EntityFrameworkCore;
+using MusicStore.Logic.Contracts;
 
 namespace MusicStore.Logic.DataContext
 {
-    /// <summary>
-    /// Represents the data context for the Music Store application.
-    /// </summary>
-    public sealed class MusicStoreContext : IContext
-    {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MusicStoreContext"/> class.
+        /// Represents the data context for the Music Store application.
         /// </summary>
-        public MusicStoreContext()
+        public sealed class MusicStoreContext : DbContext, IContext
         {
-        }
+                #region FIELDS
+                private static string ConnectionString = "data source=MusicStore.db";
+                #endregion
 
-        #region methods
-        /// <summary>
-        /// Saves changes to the data context.
-        /// </summary>
-        /// <returns>Returns the count of saved items.</returns>
-        public int SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
+                protected override void OnConfiguring( DbContextOptionsBuilder optionsBuilder )
+                {
+                        optionsBuilder.UseSqlite( ConnectionString );
 
-        public void Dispose()
-        {
-            throw new NotImplementedException();
+                        base.OnConfiguring( optionsBuilder );
+                }
+
+
+                #region PROPERTIES
+                /// <summary>
+                /// Gets or sets the collection of genres.
+                /// </summary>
+                public DbSet<Entities.Genre> GenreSet { get; set; }
+
+                /// <summary>
+                /// Gets or sets the collection of artists.
+                /// </summary>
+                public DbSet<Entities.Artist> ArtistSet { get; set; }
+
+                /// <summary>
+                /// Gets or sets the collection of albums.
+                /// </summary>
+                public DbSet<Entities.Album> AlbumSet { get; set; }
+
+                /// <summary>
+                /// Gets or sets the collection of tracks.
+                /// </summary>
+                public DbSet<Entities.Track> TrackSet { get; set; }
+
+                #endregion
+
+
+                #region CONSTRUCTOR
+                /// <summary>
+                /// Initializes a new instance of the <see cref="MusicStoreContext"/> class.
+                /// </summary>
+                public MusicStoreContext( )
+                {
+                      
+                }
+                #endregion
         }
-        #endregion methods
-    }
 }

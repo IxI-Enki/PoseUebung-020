@@ -19,3 +19,5 @@ MusicStore.ConApp/bin/Debug/net8.0/Data/Tracks.csv
 MusicStore.Logic/bin/Debug/net8.0/MusicStore.Logic.deps.json
 MusicStore.Logic/bin/Debug/net8.0/MusicStore.Logic.dll
 MusicStore.Logic/bin/Debug/net8.0/MusicStore.Logic.pdb
+/MusicStore.ConApp/bin/Debug/net8.0
+/MusicStore.Logic/bin/Debug/net8.0
