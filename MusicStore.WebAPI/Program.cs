@@ -2,7 +2,7 @@ namespace MusicStore.WebAPI;
 
 public class Program
 {
-        public static void Main( )
+        public static void Main( string[] args )
         {
                 var builder = WebApplication.CreateBuilder( args );
 
