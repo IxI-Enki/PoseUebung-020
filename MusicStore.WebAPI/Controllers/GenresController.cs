@@ -1,38 +1,40 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
-namespace MusicStore.WebAPI.Controllers;
+﻿namespace MusicStore.WebAPI.Controllers;
 
 using TGenre = Models.ModelGenre;
-using Factory = Logic.DataContext.Factory;
+
 
 [Route( "api/[controller]" )]
 [ApiController]
 public class GenresController : ControllerBase
 {
-        public const int MaxCount = 500;
-
-        // GET: api/<GenresController>
+        // GET: api/genres
         [HttpGet]
         public IEnumerable<TGenre> Get( )
         {
                 using var context = Factory.CreateContext( );
 
-                return [ .. context.GenreSet.Take( MaxCount ).AsNoTracking( ).Select( g => TGenre.Create( g ) ) ];
+                return [ .. context.GenreSet
+                                   .Take( Global.MAX_COUNT )
+                                   .AsNoTracking( )
+                                   .Select( g => TGenre.Create( g ) )
+                       ];
         }
 
-        // GET api/<GenresController>/5
+        // GET api/genres/5
         [HttpGet( "{id}" )]
         public TGenre? Get( int id )
         {
                 using var context = Factory.CreateContext( );
 
-                var result = context.GenreSet.FirstOrDefault( e => e.Id == id );
+                var result = context.GenreSet
+                                    .FirstOrDefault( g => g.Id == id );
 
-                return result != null ? TGenre.Create( result ) : null;
+                return result != null
+                                 ? TGenre.Create( result )
+                                 : null;
         }
 
-        // POST api/<GenresController>
+        // POST api/genres
         [HttpPost]
         public void Post( [FromBody] TGenre genre )
         {
@@ -50,33 +52,38 @@ public class GenresController : ControllerBase
                 }
         }
 
-        // PUT api/<GenresController>/5
+        // PUT api/genres/5
         [HttpPut( "{id}" )]
         public void Put( int id , [FromBody] TGenre genre )
         {
                 using var context = Factory.CreateContext( );
 
-                var result = context.GenreSet.FirstOrDefault( e => e.Id == id );
+                var result = new Logic.Entities.Genre( );
 
-                if(result != null)
+                if(genre != null)
                 {
                         result.CopyProperties( genre );
+                        
+                        result.Id = id;
+
+                        context.GenreSet.Add( result );
 
                         context.SaveChanges( );
                 }
         }
 
-        // DELETE api/<GenresController>/5
+        // DELETE api/genres/5
         [HttpDelete( "{id}" )]
         public void Delete( int id )
         {
                 using var context = Factory.CreateContext( );
 
-                var result = context.GenreSet.FirstOrDefault( e => e.Id == id );
+                var result = context.GenreSet
+                                    .FirstOrDefault( g => g.Id == id );
 
                 if(result != null)
                 {
-                        context.GenreSet.Remove( result! );
+                        context.GenreSet.Remove( result );
 
                         context.SaveChanges( );
                 }

@@ -1,6 +1,4 @@
-﻿using IGenre = MusicStore.Logic.Contracts.IGenre;
-
-namespace MusicStore.WebAPI.Models;
+﻿namespace MusicStore.WebAPI.Models;
 
 public class ModelGenre : ModelObject, IGenre
 {
