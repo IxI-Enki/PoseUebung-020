@@ -53,7 +53,7 @@ class IDisposable{
   <<interface>>
   + Dispose()
 }
-IDisposable "" --() "" IDisposable : is
+%%IDisposable "" --() "" IDisposable : is
 
 class IContext{
   <<interface>>
@@ -65,7 +65,7 @@ class IContext{
   + int SaveChanges()
 }
 IContext "" .. "" IDisposable : implements
-IContext "" ()-- "" IContext : is
+%%IContext "" ()-- "" IContext : is
 %% IContext "1" o-- "0..*"  Artist : holds
 %% IContext "1" o-- "0..*"  Album : holds
 %% IContext "1" o-- "0..*"  Genre : holds
@@ -78,7 +78,7 @@ IContext "" ()-- "" IContext : is
   %%───────────────────────────────────
   + string Name get; set;
 }
-IArtist "" --() "" IArtist : is
+%%IArtist "" --() "" IArtist : is
 %%─────────────────────────────────────
 
 class IAlbum{
@@ -87,7 +87,7 @@ class IAlbum{
   + int ArtistId get; set;
   + string Title get; set;
 }
-IAlbum "" --() "" IAlbum : is
+%%IAlbum "" --() "" IAlbum : is
 %%─────────────────────────────────────
 
 class IGenre{
@@ -95,7 +95,7 @@ class IGenre{
   %%───────────────────────────────────
   + string Name get; set;
 }
-IGenre "" --() "" IGenre : is
+%%IGenre "" --() "" IGenre : is
 %%─────────────────────────────────────
 
 class ITrack{
@@ -109,7 +109,7 @@ class ITrack{
   + int Milliseconds get; set;
   + double UnitPrice get; set;
 }
-ITrack "" --() "" ITrack : is
+%%ITrack "" --() "" ITrack : is
 %%─────────────────────────────────────
 
 class IIdentifiable{
@@ -117,7 +117,7 @@ class IIdentifiable{
   %%───────────────────────────────────
   + int Id get;
 }
-IIdentifiable "" ()-- "" IIdentifiable : is
+%% IIdentifiable "" ()-- "" IIdentifiable : is
 IIdentifiable "" <|.. "" IArtist : implements
 IIdentifiable "" <|.. "" IAlbum : implements
 IIdentifiable "" <|.. "" IGenre : implements
@@ -135,19 +135,19 @@ namespace Entities{
 
   }
   Track   "" --|> ""  EntityObject : is
-  Track ..() ITrack : implements
+ %% Track ..() ITrack : implements
 
   class Album{
 
   }
-  Album ..() IAlbum : implements
+%%  Album ..() IAlbum : implements
   Album   "" --|> ""  EntityObject : is
 
 
   class Artist{
 
   }
-  Artist ..() IArtist : implements
+%%  Artist ..() IArtist : implements
   Artist   "" --|> ""  EntityObject : is
 
 
@@ -155,7 +155,7 @@ namespace Entities{
 
   }
   Genre   "" --|> ""  EntityObject : is
-  Genre ..() IGenre : implements
+%%  Genre ..() IGenre : implements
 
 
 
@@ -178,7 +178,7 @@ namespace DataContext{
     + IContext CreateContext()
   }
   Factory "1..1" ..> "0..*" MusicStoreContext : creates
-  IContext ().. Factory : uses
+ %% IContext ().. Factory : uses
 
   class MusicStoreContext{
     <<internal>>
