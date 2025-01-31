@@ -38,7 +38,7 @@
       hideEmptyMembersBox: true
 ---
 classDiagram
-  direction LR
+  direction TB
 
   namespace Contracts{
     class IIdentifiable
