@@ -9,4 +9,6 @@ public abstract class EntityObject : IIdentifiable
                 ArgumentNullException.ThrowIfNullOrEmpty( nameof( other ) );
                 Id = other.Id;
         }
+
+
 }

@@ -4,7 +4,7 @@
 <!--
 <div align="center">
 
-  | `classA` |"| card.A |"| `Rel.Type` | `Link` | `Rel.Type` |"| card.B |"| `classB` | : | `LabelText` |
+  | `classA` |"| card.A |"| `Rel.Type` | `Link` | `Rel.Type` |"| card.B |"| `classB` | : | `LabelText` |  
   |:--------:|-|:------:|-|:----------:|:------:|:----------:|-|:------:|-|:--------:|:-:|:-----------:|
 
   <details><summary>

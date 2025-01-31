@@ -31,4 +31,16 @@ public sealed class Album : EntityObject, IAlbum
                 Title = other.Title;
         }
         #endregion
+
+        #region OVERRIDE
+        public override string ToString( )
+        {
+                return new StringBuilder( )
+                        .AppendLine( $"Album-Titel  : {Title}" )
+                        .AppendLine( $"Album-Artist : {Artist}" )
+                        .AppendLine( "------------------------" )
+                        .AppendLine( Tracks.Select( t => t.Title ).ToString( ) )
+                        .ToString( );
+        }
+        #endregion
 }

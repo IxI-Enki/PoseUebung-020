@@ -27,4 +27,13 @@ public sealed class Genre : EntityObject, IGenre
                 Name = other.Name;
         }
         #endregion
+
+        #region OVERRIDE
+        public override string ToString( )
+        {
+                return new StringBuilder( )
+                        .Append( Name )
+                        .ToString( );
+        }
+        #endregion
 }

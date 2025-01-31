@@ -47,4 +47,20 @@ public sealed class Track : EntityObject, ITrack
                 UnitPrice = other.UnitPrice;
         }
         #endregion
+
+        #region OVERRIDE
+        public override string ToString( )
+        {
+                return new StringBuilder( )
+                        .AppendLine( $"Titel :{Title}" )
+                        .AppendLine( "---------------------" )
+                        .AppendLine( $"Album-Title: {Title}" )
+                        .AppendLine( $"Genre      : {Genre}" )
+                        .AppendLine( $"Composer   : {Composer}" )
+                        .AppendLine( $"Duration   : {Milliseconds / 1000} [sec]" )
+                        .AppendLine( $"Unit-Price : {UnitPrice} [€]" )
+                        .AppendLine( $"Bytes      : {Bytes}" )
+                        .ToString( );
+        }
+        #endregion
 }

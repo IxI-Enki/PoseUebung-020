@@ -4,17 +4,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace MusicStore.Logic.Entities;
 
-[Table("Artists")]
-[Index(nameof(Name), IsUnique = true)]
+[Table( "Artists" )]
+[Index( nameof( Name ) , IsUnique = true )]
 public sealed class Artist : EntityObject, IArtist
 {
         #region PROPERTIES
-        [MaxLength(1024)]
+        [MaxLength( 1024 )]
         public string Name { get; set; } = string.Empty;
         #endregion
 
         #region NAVIGATION PROPERTIES
-        List<Entities.Album>? Albums { get; set; } = [];
+        public List<Entities.Album>? Albums { get; set; } = [];
         #endregion
 
         #region METHODS
@@ -25,6 +25,17 @@ public sealed class Artist : EntityObject, IArtist
                 base.CopyProperties( other );
 
                 Name = other.Name;
+        }
+        #endregion
+
+        #region OVERRIDE
+        public override string ToString( )
+        {
+                return new StringBuilder( )
+                        .AppendLine( Name )
+                        //.AppendLine( "------------------------" )
+                        //.AppendLine( Albums?.Select( t => t.Title ).ToString( ) )
+                        .ToString( );
         }
         #endregion
 }
