@@ -18,7 +18,7 @@ public sealed class Artist : EntityObject, IArtist
         #endregion
 
         #region METHODS
-        public void CopyProperties( IGenre other )
+        public void CopyProperties( IArtist other )
         {
                 ArgumentNullException.ThrowIfNullOrEmpty( nameof( other ) );
 

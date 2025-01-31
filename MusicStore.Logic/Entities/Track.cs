@@ -32,7 +32,7 @@ public sealed class Track : EntityObject, ITrack
         #endregion
 
         #region METHODS
-        public void CopyProperties( Track other )
+        public void CopyProperties( ITrack other )
         {
                 ArgumentNullException.ThrowIfNull( other , nameof( other ) );
 
