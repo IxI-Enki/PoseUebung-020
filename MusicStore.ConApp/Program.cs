@@ -132,7 +132,7 @@ namespace MusicStore.ConApp
                         }
                 }
 
-                #region G E N R E   M E T H O D S
+                #region G E N R E S   M E T H O D S
 
                 /// <summary>
                 /// Prints all genres in the context.
@@ -252,7 +252,7 @@ namespace MusicStore.ConApp
                 #endregion
 
 
-                #region A R T I S T    M E T H O D S
+                #region A R T I S T S    M E T H O D S
 
                 /// <summary>
                 /// Prints all artists in the context.P
